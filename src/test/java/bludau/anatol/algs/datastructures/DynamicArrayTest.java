@@ -1,11 +1,12 @@
 package bludau.anatol.algs.datastructures;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Unit tests for the {@link DynamicArray} class.
+ */
 public class DynamicArrayTest {
 
     @Test
@@ -88,7 +89,7 @@ public class DynamicArrayTest {
         DynamicArray<String> array = getFilledArray();
         array.set(-1, "test");
     }
-    
+
     @Test(expected = IndexOutOfBoundsException.class)
     public void setShouldThrowAnIndexOutOfBoundsExceptionForLargeIndex() {
         DynamicArray<String> array = getFilledArray();
@@ -96,13 +97,7 @@ public class DynamicArrayTest {
     }
 
     @Test
-    public void defaultInitialSizeShouldBe10() {
-        assertEquals(10, DynamicArray.INITIAL_SIZE);
-    }
-
-
-    @Test
-    public void addMethodShouldExpandSize(){
+    public void addMethodShouldExpandSize() {
         DynamicArray<String> array = new DynamicArray<>(2);
         assertEquals(2, array.capacity());
         array.add("1");
@@ -113,13 +108,13 @@ public class DynamicArrayTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void popShouldThrowIndexOfBoundExceptionForEmptyArray(){
+    public void popShouldThrowIndexOfBoundExceptionForEmptyArray() {
         Object result = getEmptyDynamicArray().pop();
         fail("Method should throw exception instead of value " + result);
     }
 
     @Test
-    public void popShouldReturnLastElementAndRetunIt(){
+    public void popShouldReturnLastElementAndRetunIt() {
         DynamicArray<String> array = fillTestArray(new DynamicArray<>(16));
 
         assertEquals(16, array.capacity());
@@ -131,7 +126,7 @@ public class DynamicArrayTest {
         return fillTestArray(getEmptyDynamicArray());
     }
 
-    private DynamicArray<String> fillTestArray(DynamicArray<String> array){
+    private DynamicArray<String> fillTestArray(DynamicArray<String> array) {
         array.add("one");
         array.add("two");
         array.add("three");
